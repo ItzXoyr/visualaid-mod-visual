@@ -29,15 +29,19 @@ jobs:
           set +e
           gradle build --stacktrace 2>&1 | tee build-output.log
           code=${PIPESTATUS[0]}
-          if [ "$code" -ne 0 ]; then
-            {
-              echo "### Gradle build failed"
-              echo '```'
-              tail -n 100 build-output.log
-              echo '```'
-            } >> "$GITHUB_STEP_SUMMARY"
-          fi
+          echo "$code" > build-exit-code.txt
           exit "$code"
+        shell: bash
+
+      - name: Commit build log on failure
+        if: failure()
+        run: |
+          tail -n 200 build-output.log > last-build-error.log
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add last-build-error.log
+          git commit -m "ci: record build failure log [skip ci]"
+          git push
         shell: bash
 
       - name: Upload jar artifact
