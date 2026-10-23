@@ -1,0 +1,33 @@
+{
+	"schemaVersion": 1,
+	"id": "visualaid",
+	"version": "${version}",
+	"name": "Visual Aid",
+	"description": "Aggiunge un contorno luminoso attivabile per il proprio personaggio e un indicatore direzionale che mostra da dove arrivano gli attacchi.",
+	"authors": [
+		"You"
+	],
+	"contact": {},
+	"license": "CC0-1.0",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.example.visualaid.VisualAidMod"
+		],
+		"client": [
+			"com.example.visualaid.client.VisualAidModClient"
+		]
+	},
+	"mixins": [
+		{
+			"config": "visualaid.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.0",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
