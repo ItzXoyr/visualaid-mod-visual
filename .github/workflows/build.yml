@@ -40,7 +40,11 @@ jobs:
       - name: Commit build log on failure
         if: failure()
         run: |
-          tail -n 200 build-output.log > last-build-error.log
+          {
+            grep -n -E "error:|\.java:[0-9]+:" build-output.log || true
+            echo "--- tail ---"
+            tail -n 60 build-output.log
+          } > last-build-error.log
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add last-build-error.log
