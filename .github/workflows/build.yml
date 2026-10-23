@@ -23,6 +23,10 @@ jobs:
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
+        with:
+          # Fabric Loom 1.7.x non e' compatibile con Gradle 9+ (API Problems
+          # cambiata). Si pinna una Gradle 8.x nota per funzionare con Loom.
+          gradle-version: '8.10'
 
       - name: Build with Gradle
         run: |
