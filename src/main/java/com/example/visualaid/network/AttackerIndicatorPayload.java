@@ -3,6 +3,7 @@ package com.example.visualaid.network;
 import com.example.visualaid.VisualAidMod;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
+import net.minecraft.network.codec.PacketCodecs;
 import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.util.Identifier;
 
@@ -16,7 +17,7 @@ public record AttackerIndicatorPayload(int attackerEntityId) implements CustomPa
 
 	public static final PacketCodec<RegistryByteBuf, AttackerIndicatorPayload> CODEC =
 			PacketCodec.tuple(
-					PacketCodec.VAR_INT, AttackerIndicatorPayload::attackerEntityId,
+					PacketCodecs.VAR_INT, AttackerIndicatorPayload::attackerEntityId,
 					AttackerIndicatorPayload::new
 			);
 
