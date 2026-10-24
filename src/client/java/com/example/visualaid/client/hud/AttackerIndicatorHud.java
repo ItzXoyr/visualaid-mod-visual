@@ -4,10 +4,9 @@ import com.example.visualaid.client.AttackerTracker;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RotationAxis;
 import net.minecraft.util.math.Vec3d;
+import org.joml.Matrix3x2fStack;
 
 /**
  * Disegna una freccia sul bordo dello schermo che punta verso l'attaccante,
@@ -59,10 +58,12 @@ public final class AttackerIndicatorHud {
 	}
 
 	private static void drawArrow(DrawContext context, int x, int y, double angleDegrees) {
-		MatrixStack matrices = context.getMatrices();
-		matrices.push();
-		matrices.translate(x, y, 0);
-		matrices.multiply(RotationAxis.POSITIVE_Z.rotation((float) Math.toRadians(angleDegrees)));
+		// Dalla 1.21.2 circa, il rendering 2D della GUI usa uno stack di
+		// matrici 2D (JOML Matrix3x2fStack) invece del vecchio MatrixStack 3D.
+		Matrix3x2fStack matrices = context.getMatrices();
+		matrices.pushMatrix();
+		matrices.translate(x, y);
+		matrices.rotate((float) Math.toRadians(angleDegrees));
 
 		int half = ARROW_SIZE / 2;
 
@@ -74,6 +75,6 @@ public final class AttackerIndicatorHud {
 			context.fill(-width / 2, rowY, width / 2 + 1, rowY + 1, COLOR);
 		}
 
-		matrices.pop();
+		matrices.popMatrix();
 	}
 }

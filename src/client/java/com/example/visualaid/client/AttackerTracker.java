@@ -88,7 +88,8 @@ public final class AttackerTracker {
 				player
 		);
 
-		HitResult result = player.getWorld().raycast(context);
+		// getWorld() e' stato rinominato getEntityWorld() nelle mappature recenti.
+		HitResult result = player.getEntityWorld().raycast(context);
 		return result.getType() == HitResult.Type.MISS;
 	}
 

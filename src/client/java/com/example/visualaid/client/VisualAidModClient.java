@@ -7,12 +7,19 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import com.example.visualaid.VisualAidMod;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 
 public class VisualAidModClient implements ClientModInitializer {
+
+	// Dalla 1.21.2 circa, la categoria di un tasto non e' piu' una semplice
+	// stringa ma un oggetto KeyBinding.Category, da registrare a parte.
+	private static final KeyBinding.Category CATEGORY =
+			KeyBinding.Category.create(Identifier.of(VisualAidMod.MOD_ID, "main"));
 
 	// Tasto di default: G. L'utente puo' comunque rimapparlo da
 	// Opzioni > Controlli > Tasti personalizzati > Visual Aid.
@@ -20,11 +27,13 @@ public class VisualAidModClient implements ClientModInitializer {
 			"key.visualaid.toggle_glow",
 			InputUtil.Type.KEYSYM,
 			GLFW.GLFW_KEY_G,
-			"category.visualaid"
+			CATEGORY
 	));
 
 	@Override
 	public void onInitializeClient() {
+		KeyBindingHelper.registerKeyBindingCategory(CATEGORY);
+
 		// Riceve dal server l'id dell'entita' che ci ha colpiti.
 		ClientPlayNetworking.registerGlobalReceiver(AttackerIndicatorPayload.ID, (payload, context) ->
 				context.client().execute(() -> AttackerTracker.onAttackerPacket(payload.attackerEntityId()))

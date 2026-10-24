@@ -1,6 +1,6 @@
 {
 	"key.visualaid.toggle_glow": "Toggle self glow",
-	"category.visualaid": "Visual Aid",
+	"key.categories.visualaid.main": "Visual Aid",
 	"message.visualaid.glow_on": "Self glow: ON",
 	"message.visualaid.glow_off": "Self glow: OFF"
 }

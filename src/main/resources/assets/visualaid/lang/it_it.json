@@ -1,6 +1,6 @@
 {
 	"key.visualaid.toggle_glow": "Attiva/disattiva luminosità",
-	"category.visualaid": "Visual Aid",
+	"key.categories.visualaid.main": "Visual Aid",
 	"message.visualaid.glow_on": "Luminosità: ON",
 	"message.visualaid.glow_off": "Luminosità: OFF"
 }
