@@ -21,6 +21,18 @@ jobs:
           java-version: '21'
           distribution: 'microsoft'
 
+      - name: List available fabric-loom plugin versions
+        run: |
+          curl -s "https://maven.fabricmc.net/net/fabricmc/fabric-loom/maven-metadata.xml" \
+            > loom-versions.xml || true
+          cat loom-versions.xml
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add loom-versions.xml
+          git commit -m "ci: list available fabric-loom versions [skip ci]" || echo "nothing to commit"
+          git push || echo "push failed, continuing"
+        shell: bash
+
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
