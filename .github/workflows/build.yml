@@ -37,9 +37,10 @@ jobs:
         if: failure()
         run: |
           {
-            grep -n -E "error:|\.java:[0-9]+:" build-output.log || true
-            echo "--- tail ---"
-            tail -n 60 build-output.log
+            echo "--- lines mentioning error/exception/caused by ---"
+            grep -n -iE "error|exception|caused by|failed to|could not" build-output.log || true
+            echo "--- full tail (400 lines) ---"
+            tail -n 400 build-output.log
           } > last-build-error.log
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
