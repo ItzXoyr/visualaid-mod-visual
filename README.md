@@ -1,4 +1,4 @@
-# Visual Aid — mod Fabric per Minecraft 1.21.1
+# Visual Aid — mod Fabric per Minecraft 1.21.11
 
 Mod che aggiunge due funzionalità:
 
@@ -74,9 +74,9 @@ installato sopra) insieme a [Fabric API](https://modrinth.com/mod/fabric-api).
 ### Nota sulle versioni esatte
 
 Le versioni di Yarn mappings / Fabric Loader / Fabric API cambiano spesso.
-Ho messo nel `gradle.properties` dei numeri plausibili per la 1.21.1, ma se
+Ho messo nel `gradle.properties` dei numeri plausibili per la 1.21.11, ma se
 la build fallisce per un problema di dipendenze mancanti, vai su
-https://fabricmc.net/develop/, seleziona Minecraft 1.21.1 e copia i numeri
+https://fabricmc.net/develop/, seleziona Minecraft 1.21.11 e copia i numeri
 di versione aggiornati in `gradle.properties`. Il codice stesso non cambia.
 
 ## Struttura del progetto
