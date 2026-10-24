@@ -15,11 +15,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up JDK 21
+      # Fabric Loom 1.19.x richiede JDK 25 per ESEGUIRE Gradle/il plugin.
+      # Il bytecode della mod resta comunque compilato per Java 21
+      # (vedi "tasks.withType(JavaCompile) { options.release = 21 }" in
+      # build.gradle), quindi il jar risultante gira lo stesso con Java 21,
+      # come quella installata insieme a Minecraft.
+      - name: Set up JDK 25 (to run Gradle/Loom)
         uses: actions/setup-java@v4
         with:
-          java-version: '21'
-          distribution: 'microsoft'
+          java-version: '25'
+          distribution: 'temurin'
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
