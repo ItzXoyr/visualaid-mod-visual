@@ -1,8 +1,4 @@
 --- tail ---
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
@@ -50,12 +46,16 @@
 	at org.gradle.launcher.daemon.server.DaemonStateCoordinator.lambda$runCommand$0(DaemonStateCoordinator.java:321)
 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:48)
-Caused by: java.lang.RuntimeException: Could not resolve mappings: net.fabricmc:yarn:1.21.11+build.+
-	at net.fabricmc.loom.configuration.providers.mappings.MappingConfiguration.lambda$create$0(MappingConfiguration.java:94)
-	at net.fabricmc.loom.configuration.providers.mappings.MappingConfiguration.create(MappingConfiguration.java:94)
+Caused by: java.lang.UnsupportedOperationException: Unsupported unpick version
+	at net.fabricmc.loom.configuration.providers.mappings.MappingConfiguration.parseUnpickMetadata(MappingConfiguration.java:246)
+	at net.fabricmc.loom.configuration.providers.mappings.MappingConfiguration.extractUnpickDefinitions(MappingConfiguration.java:225)
+	at net.fabricmc.loom.configuration.providers.mappings.MappingConfiguration.extractExtras(MappingConfiguration.java:211)
+	at net.fabricmc.loom.configuration.providers.mappings.MappingConfiguration.storeMappings(MappingConfiguration.java:172)
+	at net.fabricmc.loom.configuration.providers.mappings.MappingConfiguration.setup(MappingConfiguration.java:129)
+	at net.fabricmc.loom.configuration.providers.mappings.MappingConfiguration.create(MappingConfiguration.java:110)
 	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:175)
 	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:111)
 	... 175 more
 
 
-BUILD FAILED in 9s
+BUILD FAILED in 8s
