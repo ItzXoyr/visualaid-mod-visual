@@ -32,8 +32,6 @@ public class VisualAidModClient implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
-		KeyBindingHelper.registerKeyBindingCategory(CATEGORY);
-
 		// Riceve dal server l'id dell'entita' che ci ha colpiti.
 		ClientPlayNetworking.registerGlobalReceiver(AttackerIndicatorPayload.ID, (payload, context) ->
 				context.client().execute(() -> AttackerTracker.onAttackerPacket(payload.attackerEntityId()))
