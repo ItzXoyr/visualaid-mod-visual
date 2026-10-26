@@ -38,6 +38,31 @@ jobs:
           exit "$code"
         shell: bash
 
+      - name: Dump method signatures for first-person render classes
+        run: |
+          set +x
+          named_jar=$(find ~/.gradle -iname "*named*.jar" 2>/dev/null | grep -i minecraft | head -n 1)
+          if [ -z "$named_jar" ]; then
+            named_jar=$(find . ~/.gradle -iname "*.jar" 2>/dev/null | xargs -I{} sh -c 'unzip -l "{}" 2>/dev/null | grep -q "net/minecraft/client/render/item/HeldItemRenderer.class" && echo {}' | head -n 1)
+          fi
+          echo "Using jar: $named_jar" > method-dump.txt
+          if [ -n "$named_jar" ]; then
+            {
+              echo "=== HeldItemRenderer ==="
+              javap -p -l -classpath "$named_jar" net.minecraft.client.render.item.HeldItemRenderer 2>&1
+              echo "=== GameRenderer ==="
+              javap -p -l -classpath "$named_jar" net.minecraft.client.render.GameRenderer 2>&1
+            } >> method-dump.txt
+          else
+            echo "No named minecraft jar found" >> method-dump.txt
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add method-dump.txt
+          git commit -m "ci: dump method signatures [skip ci]" || echo "nothing to commit"
+          git push || echo "push failed, continuing"
+        shell: bash
+
       - name: Commit build log on failure
         if: failure()
         run: |
