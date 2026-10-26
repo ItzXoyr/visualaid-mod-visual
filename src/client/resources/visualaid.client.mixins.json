@@ -4,8 +4,7 @@
 	"package": "com.example.visualaid.client.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
-		"EntityGlowMixin",
-		"FirstPersonArmOutlineMixin"
+		"EntityGlowMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
