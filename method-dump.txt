@@ -1,0 +1,756 @@
+Searching for named minecraft jar...
+Using jar: /home/runner/.gradle/caches/fabric-loom/minecraftMaven/net/minecraft/minecraft-clientonly/1.21.1-net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2/minecraft-clientonly-1.21.1-net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2.jar
+=== HeldItemRenderer ===
+Warning: bad combination of options: -l without -c, line number and local variable tables will not be printed
+Compiled from "HeldItemRenderer.java"
+public class net.minecraft.client.render.item.HeldItemRenderer {
+  private static final net.minecraft.client.render.RenderLayer MAP_BACKGROUND;
+
+  private static final net.minecraft.client.render.RenderLayer MAP_BACKGROUND_CHECKERBOARD;
+
+  private static final float field_32735;
+
+  private static final float field_32736;
+
+  private static final float field_32737;
+
+  private static final float field_32738;
+
+  private static final float EQUIP_OFFSET_TRANSLATE_X;
+
+  private static final float EQUIP_OFFSET_TRANSLATE_Y;
+
+  private static final float EQUIP_OFFSET_TRANSLATE_Z;
+
+  private static final float field_32742;
+
+  private static final float field_32743;
+
+  private static final float field_32744;
+
+  private static final float field_32745;
+
+  private static final float EAT_OR_DRINK_X_ANGLE_MULTIPLIER;
+
+  private static final float EAT_OR_DRINK_Y_ANGLE_MULTIPLIER;
+
+  private static final float EAT_OR_DRINK_Z_ANGLE_MULTIPLIER;
+
+  private static final float field_32749;
+
+  private static final float field_32750;
+
+  private static final float field_32751;
+
+  private static final double field_32752;
+
+  private static final float field_32753;
+
+  private static final float field_32754;
+
+  private static final float field_32755;
+
+  private static final float field_32756;
+
+  private static final float field_32757;
+
+  private static final float ARM_HOLDING_ITEM_SECOND_Y_ANGLE_MULTIPLIER;
+
+  private static final float ARM_HOLDING_ITEM_FIRST_Z_ANGLE_MULTIPLIER;
+
+  private static final float field_32690;
+
+  private static final float field_32691;
+
+  private static final float field_32692;
+
+  private static final float field_32693;
+
+  private static final float field_32694;
+
+  private static final float field_32695;
+
+  private static final float field_32696;
+
+  private static final float field_32697;
+
+  private static final float field_32698;
+
+  private static final float ARM_HOLDING_ITEM_TRANSLATE_X;
+
+  private static final int ARM_HOLDING_ITEM_X_ANGLE_MULTIPLIER;
+
+  private static final int ARM_HOLDING_ITEM_THIRD_Y_ANGLE_MULTIPLIER;
+
+  private static final int ARM_HOLDING_ITEM_SECOND_Z_ANGLE_MULTIPLIER;
+
+  private static final float field_32703;
+
+  private static final float field_32704;
+
+  private static final float field_32705;
+
+  private static final float field_32706;
+
+  private static final float field_32707;
+
+  private static final float field_32708;
+
+  private static final float field_32709;
+
+  private static final float field_32710;
+
+  private static final float field_32711;
+
+  private static final float ARM_X_ANGLE_MULTIPLIER;
+
+  private static final float ARM_Y_ANGLE_MULTIPLIER;
+
+  private static final float ARM_Z_ANGLE_MULTIPLIER;
+
+  private static final float ARM_TRANSLATE_X;
+
+  private static final float ARM_TRANSLATE_Y;
+
+  private static final float ARM_TRANSLATE_Z;
+
+  private static final float field_32718;
+
+  private static final float FIRST_PERSON_MAP_FIRST_SCALE;
+
+  private static final float FIRST_PERSON_MAP_TRANSLATE_X;
+
+  private static final float FIRST_PERSON_MAP_TRANSLATE_Y;
+
+  private static final float FIRST_PERSON_MAP_TRANSLATE_Z;
+
+  private static final float FIRST_PERSON_MAP_SECOND_SCALE;
+
+  private static final int field_32724;
+
+  private static final int field_32725;
+
+  private static final int field_32726;
+
+  private static final float field_32727;
+
+  private static final float field_32728;
+
+  private static final float field_32729;
+
+  private static final float field_32730;
+
+  private static final float field_32731;
+
+  private static final float field_32732;
+
+  private static final float field_32733;
+
+  private static final float field_32734;
+
+  private final net.minecraft.client.MinecraftClient client;
+
+  private net.minecraft.item.ItemStack mainHand;
+
+  private net.minecraft.item.ItemStack offHand;
+
+  private float equipProgressMainHand;
+
+  private float prevEquipProgressMainHand;
+
+  private float equipProgressOffHand;
+
+  private float prevEquipProgressOffHand;
+
+  private final net.minecraft.client.render.entity.EntityRenderDispatcher entityRenderDispatcher;
+
+  private final net.minecraft.client.render.item.ItemRenderer itemRenderer;
+
+  public net.minecraft.client.render.item.HeldItemRenderer(net.minecraft.client.MinecraftClient, net.minecraft.client.render.entity.EntityRenderDispatcher, net.minecraft.client.render.item.ItemRenderer);
+
+  public void renderItem(net.minecraft.entity.LivingEntity, net.minecraft.item.ItemStack, net.minecraft.client.render.model.json.ModelTransformationMode, boolean, net.minecraft.client.util.math.MatrixStack, net.minecraft.client.render.VertexConsumerProvider, int);
+
+  private float getMapAngle(float);
+
+  private void renderArm(net.minecraft.client.util.math.MatrixStack, net.minecraft.client.render.VertexConsumerProvider, int, net.minecraft.util.Arm);
+
+  private void renderMapInOneHand(net.minecraft.client.util.math.MatrixStack, net.minecraft.client.render.VertexConsumerProvider, int, float, net.minecraft.util.Arm, float, net.minecraft.item.ItemStack);
+
+  private void renderMapInBothHands(net.minecraft.client.util.math.MatrixStack, net.minecraft.client.render.VertexConsumerProvider, int, float, float, float);
+
+  private void renderFirstPersonMap(net.minecraft.client.util.math.MatrixStack, net.minecraft.client.render.VertexConsumerProvider, int, net.minecraft.item.ItemStack);
+
+  private void renderArmHoldingItem(net.minecraft.client.util.math.MatrixStack, net.minecraft.client.render.VertexConsumerProvider, int, float, float, net.minecraft.util.Arm);
+
+  private void applyEatOrDrinkTransformation(net.minecraft.client.util.math.MatrixStack, float, net.minecraft.util.Arm, net.minecraft.item.ItemStack, net.minecraft.entity.player.PlayerEntity);
+
+  private void applyBrushTransformation(net.minecraft.client.util.math.MatrixStack, float, net.minecraft.util.Arm, net.minecraft.item.ItemStack, net.minecraft.entity.player.PlayerEntity, float);
+
+  private void applySwingOffset(net.minecraft.client.util.math.MatrixStack, net.minecraft.util.Arm, float);
+
+  private void applyEquipOffset(net.minecraft.client.util.math.MatrixStack, net.minecraft.util.Arm, float);
+
+  public void renderItem(float, net.minecraft.client.util.math.MatrixStack, net.minecraft.client.render.VertexConsumerProvider$Immediate, net.minecraft.client.network.ClientPlayerEntity, int);
+
+  static net.minecraft.client.render.item.HeldItemRenderer$HandRenderType getHandRenderType(net.minecraft.client.network.ClientPlayerEntity);
+
+  private static net.minecraft.client.render.item.HeldItemRenderer$HandRenderType getUsingItemHandRenderType(net.minecraft.client.network.ClientPlayerEntity);
+
+  private static boolean isChargedCrossbow(net.minecraft.item.ItemStack);
+
+  private void renderFirstPersonItem(net.minecraft.client.network.AbstractClientPlayerEntity, float, float, net.minecraft.util.Hand, float, net.minecraft.item.ItemStack, float, net.minecraft.client.util.math.MatrixStack, net.minecraft.client.render.VertexConsumerProvider, int);
+
+  public void updateHeldItems();
+
+  public void resetEquipProgress(net.minecraft.util.Hand);
+
+  static {};
+}
+=== GameRenderer ===
+Warning: bad combination of options: -l without -c, line number and local variable tables will not be printed
+Compiled from "GameRenderer.java"
+public class net.minecraft.client.render.GameRenderer implements java.lang.AutoCloseable {
+  private static final net.minecraft.util.Identifier NAUSEA_OVERLAY;
+
+  private static final net.minecraft.util.Identifier BLUR_PROCESSOR;
+
+  public static final int field_49904;
+
+  static final org.slf4j.Logger LOGGER;
+
+  private static final boolean field_32688;
+
+  public static final float CAMERA_DEPTH;
+
+  private static final float field_44940;
+
+  final net.minecraft.client.MinecraftClient client;
+
+  private final net.minecraft.resource.ResourceManager resourceManager;
+
+  private final net.minecraft.util.math.random.Random random;
+
+  private float viewDistance;
+
+  public final net.minecraft.client.render.item.HeldItemRenderer firstPersonRenderer;
+
+  private final net.minecraft.client.render.MapRenderer mapRenderer;
+
+  private final net.minecraft.client.render.BufferBuilderStorage buffers;
+
+  private int ticks;
+
+  private float fovMultiplier;
+
+  private float lastFovMultiplier;
+
+  private float skyDarkness;
+
+  private float lastSkyDarkness;
+
+  private boolean renderHand;
+
+  private boolean blockOutlineEnabled;
+
+  private long lastWorldIconUpdate;
+
+  private boolean hasWorldIcon;
+
+  private long lastWindowFocusedTime;
+
+  private final net.minecraft.client.render.LightmapTextureManager lightmapTextureManager;
+
+  private final net.minecraft.client.render.OverlayTexture overlayTexture;
+
+  private boolean renderingPanorama;
+
+  private float zoom;
+
+  private float zoomX;
+
+  private float zoomY;
+
+  public static final int field_32687;
+
+  private net.minecraft.item.ItemStack floatingItem;
+
+  private int floatingItemTimeLeft;
+
+  private float floatingItemWidth;
+
+  private float floatingItemHeight;
+
+  net.minecraft.client.gl.PostEffectProcessor postProcessor;
+
+  private net.minecraft.client.gl.PostEffectProcessor blurPostProcessor;
+
+  private boolean postProcessorEnabled;
+
+  private final net.minecraft.client.render.Camera camera;
+
+  public net.minecraft.client.gl.ShaderProgram blitScreenProgram;
+
+  private final java.util.Map<java.lang.String, net.minecraft.client.gl.ShaderProgram> programs;
+
+  private static net.minecraft.client.gl.ShaderProgram positionProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram positionColorProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram positionTexProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram positionTexColorProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram particleProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram positionColorLightmapProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram positionColorTexLightmapProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeSolidProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeCutoutMippedProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeCutoutProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeTranslucentProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeTranslucentMovingBlockProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeArmorCutoutNoCullProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeEntitySolidProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeEntityCutoutProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeEntityCutoutNoNullProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeEntityCutoutNoNullZOffsetProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeItemEntityTranslucentCullProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeEntityTranslucentCullProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeEntityTranslucentProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeEntityTranslucentEmissiveProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeEntitySmoothCutoutProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeBeaconBeamProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeEntityDecalProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeEntityNoOutlineProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeEntityShadowProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeEntityAlphaProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeEyesProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeEnergySwirlProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeBreezeWindProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeLeashProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeWaterMaskProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeOutlineProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeArmorGlintProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeArmorEntityGlintProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeGlintTranslucentProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeGlintProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeGlintDirectProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeEntityGlintProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeEntityGlintDirectProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeTextProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeTextBackgroundProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeTextIntensityProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeTextSeeThroughProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeTextBackgroundSeeThroughProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeTextIntensitySeeThroughProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeLightningProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeTripwireProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeEndPortalProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeEndGatewayProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeCloudsProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeLinesProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeCrumblingProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeGuiProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeGuiOverlayProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeGuiTextHighlightProgram;
+
+  private static net.minecraft.client.gl.ShaderProgram renderTypeGuiGhostRecipeOverlayProgram;
+
+  public net.minecraft.client.render.GameRenderer(net.minecraft.client.MinecraftClient, net.minecraft.client.render.item.HeldItemRenderer, net.minecraft.resource.ResourceManager, net.minecraft.client.render.BufferBuilderStorage);
+
+  public void close();
+
+  public void setRenderHand(boolean);
+
+  public void setBlockOutlineEnabled(boolean);
+
+  public void setRenderingPanorama(boolean);
+
+  public boolean isRenderingPanorama();
+
+  public void disablePostProcessor();
+
+  public void togglePostProcessorEnabled();
+
+  public void onCameraEntitySet(net.minecraft.entity.Entity);
+
+  private void loadPostProcessor(net.minecraft.util.Identifier);
+
+  private void loadBlurPostProcessor(net.minecraft.resource.ResourceFactory);
+
+  public void renderBlur(float);
+
+  public net.minecraft.resource.ResourceReloader createProgramReloader();
+
+  public void preloadPrograms(net.minecraft.resource.ResourceFactory);
+
+  private net.minecraft.client.gl.ShaderProgram preloadProgram(net.minecraft.resource.ResourceFactory, java.lang.String, net.minecraft.client.render.VertexFormat);
+
+  void loadPrograms(net.minecraft.resource.ResourceFactory);
+
+  private void clearPrograms();
+
+  public net.minecraft.client.gl.ShaderProgram getProgram(java.lang.String);
+
+  public void tick();
+
+  public net.minecraft.client.gl.PostEffectProcessor getPostProcessor();
+
+  public void onResized(int, int);
+
+  public void updateCrosshairTarget(float);
+
+  private net.minecraft.util.hit.HitResult findCrosshairTarget(net.minecraft.entity.Entity, double, double, float);
+
+  private static net.minecraft.util.hit.HitResult ensureTargetInRange(net.minecraft.util.hit.HitResult, net.minecraft.util.math.Vec3d, double);
+
+  private void updateFovMultiplier();
+
+  private double getFov(net.minecraft.client.render.Camera, float, boolean);
+
+  private void tiltViewWhenHurt(net.minecraft.client.util.math.MatrixStack, float);
+
+  private void bobView(net.minecraft.client.util.math.MatrixStack, float);
+
+  public void renderWithZoom(float, float, float);
+
+  private void renderHand(net.minecraft.client.render.Camera, float, org.joml.Matrix4f);
+
+  public void loadProjectionMatrix(org.joml.Matrix4f);
+
+  public org.joml.Matrix4f getBasicProjectionMatrix(double);
+
+  public float getFarPlaneDistance();
+
+  public static float getNightVisionStrength(net.minecraft.entity.LivingEntity, float);
+
+  public void render(net.minecraft.client.render.RenderTickCounter, boolean);
+
+  private void updateWorldIcon();
+
+  private void updateWorldIcon(java.nio.file.Path);
+
+  private boolean shouldRenderBlockOutline();
+
+  public void renderWorld(net.minecraft.client.render.RenderTickCounter);
+
+  public void reset();
+
+  public net.minecraft.client.render.MapRenderer getMapRenderer();
+
+  public void showFloatingItem(net.minecraft.item.ItemStack);
+
+  private void renderFloatingItem(net.minecraft.client.gui.DrawContext, float);
+
+  private void renderNausea(net.minecraft.client.gui.DrawContext, float);
+
+  public net.minecraft.client.MinecraftClient getClient();
+
+  public float getSkyDarkness(float);
+
+  public float getViewDistance();
+
+  public net.minecraft.client.render.Camera getCamera();
+
+  public net.minecraft.client.render.LightmapTextureManager getLightmapTextureManager();
+
+  public net.minecraft.client.render.OverlayTexture getOverlayTexture();
+
+  public static net.minecraft.client.gl.ShaderProgram getPositionProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getPositionColorProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getPositionTexProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getPositionTexColorProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getParticleProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getPositionColorLightmapProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getPositionColorTexLightmapProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeSolidProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeCutoutMippedProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeCutoutProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeTranslucentProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeTranslucentMovingBlockProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeArmorCutoutNoCullProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeEntitySolidProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeEntityCutoutProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeEntityCutoutNoNullProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeEntityCutoutNoNullZOffsetProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeItemEntityTranslucentCullProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeEntityTranslucentCullProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeEntityTranslucentProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeEntityTranslucentEmissiveProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeEntitySmoothCutoutProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeBeaconBeamProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeEntityDecalProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeEntityNoOutlineProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeEntityShadowProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeEntityAlphaProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeEyesProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeEnergySwirlProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeBreezeWindProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeLeashProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeWaterMaskProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeOutlineProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeArmorGlintProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeArmorEntityGlintProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeGlintTranslucentProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeGlintProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeGlintDirectProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeEntityGlintProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeEntityGlintDirectProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeTextProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeTextBackgroundProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeTextIntensityProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeTextSeeThroughProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeTextBackgroundSeeThroughProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeTextIntensitySeeThroughProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeLightningProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeTripwireProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeEndPortalProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeEndGatewayProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeCloudsProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeLinesProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeCrumblingProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeGuiProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeGuiOverlayProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeGuiTextHighlightProgram();
+
+  public static net.minecraft.client.gl.ShaderProgram getRenderTypeGuiGhostRecipeOverlayProgram();
+
+  private void method_60888(net.minecraft.client.util.math.MatrixStack, net.minecraft.client.gui.DrawContext);
+
+  private static void method_3181(net.minecraft.client.texture.NativeImage, java.nio.file.Path);
+
+  private void method_37474(java.nio.file.Path);
+
+  private java.lang.String method_37103() throws java.lang.Exception;
+
+  private java.lang.String method_3173() throws java.lang.Exception;
+
+  private java.lang.String method_3191(int, int) throws java.lang.Exception;
+
+  private java.lang.String method_3205() throws java.lang.Exception;
+
+  private java.lang.String method_18655() throws java.lang.Exception;
+
+  private static boolean method_18144(net.minecraft.entity.Entity);
+
+  private void method_36512(com.mojang.datafixers.util.Pair);
+
+  private static void method_36516(com.mojang.datafixers.util.Pair);
+
+  private static void method_55250(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_51770(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_51775(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_51776(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_51777(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36513(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36517(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36502(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36518(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36519(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36520(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36521(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36522(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_49039(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36523(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36524(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_49040(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36525(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36526(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36527(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36529(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36530(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36531(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36533(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36534(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36535(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36536(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36537(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36538(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36539(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36540(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36541(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36486(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36487(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_42594(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36488(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36489(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_54637(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36492(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36493(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36494(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36495(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36496(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36497(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36498(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36499(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_56845(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36504(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36505(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36506(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36507(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36508(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36509(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36510(net.minecraft.client.gl.ShaderProgram);
+
+  private static void method_36511(net.minecraft.client.gl.ShaderProgram);
+
+  static {};
+}
