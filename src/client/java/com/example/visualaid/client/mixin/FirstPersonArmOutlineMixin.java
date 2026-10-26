@@ -31,8 +31,9 @@ public abstract class FirstPersonArmOutlineMixin {
 			return original;
 		}
 
-		OutlineVertexConsumerProvider outline = new OutlineVertexConsumerProvider(original);
-		outline.setColor(255, 221, 51, 255);
+		OutlineVertexConsumerProvider outline = new OutlineVertexConsumerProvider();
+		// ARGB compattato in un solo int: giallo pieno opaco.
+		outline.setColor(0xFFFFDD33);
 		this.visualaid$outlineProvider = outline;
 		return outline;
 	}
