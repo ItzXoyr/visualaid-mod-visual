@@ -39,28 +39,33 @@ jobs:
         shell: bash
 
       - name: Dump method signatures for first-person render classes
+        if: always()
+        continue-on-error: true
         run: |
-          set +x
-          named_jar=$(find ~/.gradle -iname "*named*.jar" 2>/dev/null | grep -i minecraft | head -n 1)
-          if [ -z "$named_jar" ]; then
-            named_jar=$(find . ~/.gradle -iname "*.jar" 2>/dev/null | xargs -I{} sh -c 'unzip -l "{}" 2>/dev/null | grep -q "net/minecraft/client/render/item/HeldItemRenderer.class" && echo {}' | head -n 1)
-          fi
-          echo "Using jar: $named_jar" > method-dump.txt
+          set +e +o pipefail
+          echo "Searching for named minecraft jar..." > method-dump.txt
+          named_jar=""
+          for f in $(find ~/.gradle -iname "*.jar" 2>/dev/null); do
+            if unzip -l "$f" 2>/dev/null | grep -q "net/minecraft/client/render/item/HeldItemRenderer.class"; then
+              named_jar="$f"
+              break
+            fi
+          done
+          echo "Using jar: $named_jar" >> method-dump.txt
           if [ -n "$named_jar" ]; then
-            {
-              echo "=== HeldItemRenderer ==="
-              javap -p -l -classpath "$named_jar" net.minecraft.client.render.item.HeldItemRenderer 2>&1
-              echo "=== GameRenderer ==="
-              javap -p -l -classpath "$named_jar" net.minecraft.client.render.GameRenderer 2>&1
-            } >> method-dump.txt
+            echo "=== HeldItemRenderer ===" >> method-dump.txt
+            javap -p -l -classpath "$named_jar" net.minecraft.client.render.item.HeldItemRenderer >> method-dump.txt 2>&1
+            echo "=== GameRenderer ===" >> method-dump.txt
+            javap -p -l -classpath "$named_jar" net.minecraft.client.render.GameRenderer >> method-dump.txt 2>&1
           else
             echo "No named minecraft jar found" >> method-dump.txt
           fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add method-dump.txt
-          git commit -m "ci: dump method signatures [skip ci]" || echo "nothing to commit"
-          git push || echo "push failed, continuing"
+          git commit -m "ci: dump method signatures [skip ci]"
+          git push
+          exit 0
         shell: bash
 
       - name: Commit build log on failure
